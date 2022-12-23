@@ -54,7 +54,4 @@ public class Route {
     public void setPriceFrom(int portPrice) {
         this.portPrice = portPrice;
     }
-    public void deleteThisLater(){
-
-    }
 }
