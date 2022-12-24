@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class Ship {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String address;

@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Table(name="ROUTE_TBL")
 public class Route {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long portNumber;
     private String portName;
     private int portPrice;
