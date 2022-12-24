@@ -2,7 +2,7 @@
 //
 //import com.adiljins.fullstackbackend.exception.NotFoundException;
 //import com.adiljins.fullstackbackend.model.ship.Ship;
-//import com.adiljins.fullstackbackend.repository.ShipRepository;
+//import com.adiljins.fullstackbackend.repository.ship_repo.ShipRepository;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.web.bind.annotation.*;
 //
@@ -29,10 +29,8 @@
 //    @PutMapping("/ship/{id}")
 //    Ship updateShip(@RequestBody Ship newShip,@PathVariable Long id){
 //        return shipRepository.findById(id).map(ship -> {
-//            ship.setName(newShip.getName());
+//            ship.setType(newShip.getType());
 //            ship.setAddress(newShip.getAddress());
-//            ship.setWeightMin(newShip.getWeightMin());
-//            ship.setWeightMax(newShip.getWeightMax());
 //            ship.setPricePerYear(newShip.getPricePerYear());
 //            ship.setPrice(newShip.getPrice());
 //            ship.setYears(newShip.getYears());

@@ -7,7 +7,7 @@ import jakarta.persistence.Entity;
 public class Cruise extends Ship {
     private final int weightMin = 50;
     private final int weightMax = 1000;
-    private final int pricePerYear = 1000;
+    private int pricePerYear = 1000;
 
     public int getWeightMin() {
         return weightMin;
@@ -18,7 +18,7 @@ public class Cruise extends Ship {
     public int getPricePerYear() {
         return pricePerYear;
     }
-
-
-
+    public void setPricePerYear(int pricePerYear) {
+        this.pricePerYear = pricePerYear;
+    }
 }

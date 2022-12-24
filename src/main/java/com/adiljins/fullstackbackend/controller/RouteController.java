@@ -27,7 +27,7 @@ public class RouteController {
         return routeRepository.save(newRoute);
     }
 
-    @PostMapping("/set_routes")
+    @PostMapping("/set")
     List<Route> setRoutes(){
         List<Route> routes = Arrays.asList(
                 new Route("New York1", 99),
@@ -53,7 +53,6 @@ public class RouteController {
         );
         return routeRepository.saveAll(routes);
     }
-
 
     @GetMapping("/routes")
     List<Route> getAllRoutes(){return routeRepository.findAll();}

@@ -5,6 +5,10 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
 
+import java.util.Set;
+
+import static com.adiljins.fullstackbackend.accounting.Lease.getLeasing;
+
 @Entity
 @Table(name="SHIP_TBL")
 @Component
@@ -13,31 +17,48 @@ public class Ship {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String company;
+    private String type = this.getClass().getSimpleName();
     private String address;
     private int years;
     private String typeLease;
     private int price;
     private int pricePerYear;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonBackReference
-    Company company;
-    public Company getCompany() {
-        return company;
+    public String getType() {
+        return type;
     }
-    public void setCompany(Company company) {
-        this.company = company;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Long getId() {
-        return id;
+//    public Ship() {
+//        this.price = getLeasing(this.getTypeLease(),this.getYears(),this.getPricePerYear());
+//    }
+
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JsonBackReference()
+//    Company company;
+
+//    public Company getCompany() {
+//        return company;
+//    }
+//    public void setCompany(Company company) {
+//        this.company = company;
+//    }
+
+    public void generatePrice(){
+        this.pricePerYear = this.getPricePerYear();
+        this.price = getLeasing(this.getTypeLease(),this.getYears(),this.getPricePerYear());
     }
     public String getName() {
-        return name;
+        return company;
     }
     public void setName(String name) {
-        this.name = name;
+        this.company = name;
+    }
+    public Long getId() {
+        return id;
     }
     public String getAddress() {
         return address;

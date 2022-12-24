@@ -21,7 +21,7 @@ public class Route {
         this.portPrice = portPrice;
     }
 
-    //
+
 //    public Route(int port1, int port2, int quantity) {
 //        this.port1 = port1;
 //        this.port2 = port2;

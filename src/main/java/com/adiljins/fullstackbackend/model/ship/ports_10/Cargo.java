@@ -13,7 +13,7 @@ public class Cargo extends Ship {
 
     private final int weightMin = 2000;
     private final int weightMax = 5000;
-    private final int pricePerYear = 2000;
+    private int pricePerYear = 2000;
 
     public int getWeightMin() {
         return weightMin;
@@ -24,5 +24,7 @@ public class Cargo extends Ship {
     public int getPricePerYear() {
         return pricePerYear;
     }
-
+    public void setPricePerYear(int pricePerYear) {
+        this.pricePerYear = pricePerYear;
+    }
 }
