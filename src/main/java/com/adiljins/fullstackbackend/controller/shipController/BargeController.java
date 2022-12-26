@@ -50,7 +50,7 @@ public class BargeController {
         }).orElseThrow(()->new NotFoundException(id));
     }
 
-    @DeleteMapping("/barge/{id}")
+    @DeleteMapping("/del/{id}")
     String deleteBarge(@PathVariable Long id){
         if(!bargeRepository.existsById(id)){
             throw new NotFoundException(id);

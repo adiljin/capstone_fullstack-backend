@@ -46,7 +46,7 @@ public class TankerController {
         }).orElseThrow(()->new NotFoundException(id));
     }
 
-    @DeleteMapping("/tanker/{id}")
+    @DeleteMapping("/del/{id}")
     String deleteTanker(@PathVariable Long id){
         if(!tankerRepository.existsById(id)){
             throw new NotFoundException(id);

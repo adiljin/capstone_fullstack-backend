@@ -46,7 +46,7 @@ public class ContainerController {
         }).orElseThrow(()->new NotFoundException(id));
     }
 
-    @DeleteMapping("/container/{id}")
+    @DeleteMapping("/del/{id}")
     String deleteContainer(@PathVariable Long id){
         if(!containerRepository.existsById(id)){
             throw new NotFoundException(id);

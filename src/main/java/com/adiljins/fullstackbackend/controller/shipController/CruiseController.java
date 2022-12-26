@@ -48,7 +48,7 @@ public class CruiseController {
             return cruiseRepository.save(cruise);
         }).orElseThrow(()->new NotFoundException(id));
     }
-    @DeleteMapping("/cruise/{id}")
+    @DeleteMapping("/del/{id}")
     String deleteCruise(@PathVariable Long id){
         if(!cruiseRepository.existsById(id)){
             throw new NotFoundException(id);

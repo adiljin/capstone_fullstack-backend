@@ -46,7 +46,7 @@ public class TugboatController {
         }).orElseThrow(()->new NotFoundException(id));
     }
 
-    @DeleteMapping("/tugboat/{id}")
+    @DeleteMapping("/del/{id}")
     String deleteTugboat(@PathVariable Long id){
         if(!tugboatRepository.existsById(id)){
             throw new NotFoundException(id);

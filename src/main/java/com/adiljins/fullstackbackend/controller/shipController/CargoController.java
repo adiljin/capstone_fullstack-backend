@@ -46,7 +46,7 @@ public class CargoController {
             return cargoRepository.save(cargo);
         }).orElseThrow(()->new NotFoundException(id));
     }
-    @DeleteMapping("/cargo/{id}")
+    @DeleteMapping("/del/{id}")
     String deleteCargo(@PathVariable Long id){
         if(!cargoRepository.existsById(id)){
             throw new NotFoundException(id);
