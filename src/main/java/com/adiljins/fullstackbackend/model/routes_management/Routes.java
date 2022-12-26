@@ -31,13 +31,13 @@ public class Routes {
         int result;
 
         for (Route x : routes) {
-            if(x.getPortNumber() == this.port1) {
+            if(x.getId() == this.port1) {
                 may = true;
             }
             if(may) {
                 counterPrice = counterPrice + x.getPriceFrom();
             }
-            if(x.getPortNumber() == this.port2) {
+            if(x.getId() == this.port2) {
                 break;
             }
         }

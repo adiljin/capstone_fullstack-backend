@@ -18,8 +18,10 @@ public class Ship {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String company;
-    private String type = this.getClass().getSimpleName();
     private String address;
+    private String number;
+    private String email;
+    private String type = this.getClass().getSimpleName();
     private int years;
     private String typeLease;
     private int price;
@@ -89,5 +91,23 @@ public class Ship {
     }
     public void setPricePerYear(int pricePerYear) {
         this.pricePerYear = pricePerYear;
+    }
+    public String getCompany() {
+        return company;
+    }
+    public void setCompany(String company) {
+        this.company = company;
+    }
+    public String getNumber() {
+        return number;
+    }
+    public void setNumber(String number) {
+        this.number = number;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

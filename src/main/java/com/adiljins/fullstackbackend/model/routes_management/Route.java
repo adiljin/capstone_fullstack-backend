@@ -7,10 +7,9 @@ import jakarta.persistence.*;
 public class Route {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long portNumber;
+    private Long id;
     private String portName;
     private int portPrice;
-
 
     public Route() {
     }
@@ -20,11 +19,8 @@ public class Route {
         this.portPrice = portPrice;
     }
 
-
-
-
-    public Long getPortNumber() {
-        return portNumber;
+    public Long getId() {
+        return id;
     }
     public String getPortName() {
         return portName;

@@ -25,9 +25,8 @@ public class Freight {
     private int route;
     private String routeType;
     @OneToOne
-    @JoinColumn(name = "chosen_route_port_number")
+    @JoinColumn(name = "chosen_route_id")
     private Route chosenRoute;
-
     public void setType(String type) {
         this.type = type;
     }

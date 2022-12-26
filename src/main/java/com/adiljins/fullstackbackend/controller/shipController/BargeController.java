@@ -39,11 +39,13 @@ public class BargeController {
     @PutMapping("/barge/{id}")
     Barge updateBarge(@RequestBody Barge newBarge,@PathVariable Long id){
         return bargeRepository.findById(id).map(barge -> {
-            barge.setType(newBarge.getType());
+            barge.setCompany(newBarge.getCompany());
             barge.setAddress(newBarge.getAddress());
-            barge.setPrice(newBarge.getPrice());
+            barge.setNumber(newBarge.getNumber());
+            barge.setEmail(newBarge.getEmail());
             barge.setYears(newBarge.getYears());
             barge.setTypeLease(newBarge.getTypeLease());
+            barge.setPrice(newBarge.getPrice());
             return bargeRepository.save(barge);
         }).orElseThrow(()->new NotFoundException(id));
     }
