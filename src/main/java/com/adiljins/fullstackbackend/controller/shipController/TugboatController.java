@@ -32,16 +32,13 @@ public class TugboatController {
         return tugboatRepository.findById(id).orElseThrow(()->new NotFoundException(id));
     }
 
-    @PutMapping("/tugboat/{id}")
+    @PutMapping("/{id}")
     Tugboat updateTugboat(@RequestBody Tugboat newTugboat,@PathVariable Long id){
         return tugboatRepository.findById(id).map(cruise -> {
             cruise.setCompany(newTugboat.getCompany());
             cruise.setAddress(newTugboat.getAddress());
             cruise.setNumber(newTugboat.getNumber());
             cruise.setEmail(newTugboat.getEmail());
-            cruise.setYears(newTugboat.getYears());
-            cruise.setTypeLease(newTugboat.getTypeLease());
-            cruise.setPrice(newTugboat.getPrice());
             return tugboatRepository.save(cruise);
         }).orElseThrow(()->new NotFoundException(id));
     }

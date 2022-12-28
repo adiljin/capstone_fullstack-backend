@@ -33,16 +33,13 @@ public class CargoController {
         return cargoRepository.findById(id).orElseThrow(()->new NotFoundException(id));
     }
 
-    @PutMapping("/cargo/{id}")
+    @PutMapping("/{id}")
     Cargo updateCargo(@RequestBody Cargo newCargo,@PathVariable Long id){
         return cargoRepository.findById(id).map(cargo -> {
             cargo.setCompany(newCargo.getCompany());
             cargo.setAddress(newCargo.getAddress());
             cargo.setNumber(newCargo.getNumber());
             cargo.setEmail(newCargo.getEmail());
-            cargo.setYears(newCargo.getYears());
-            cargo.setTypeLease(newCargo.getTypeLease());
-            cargo.setPrice(newCargo.getPrice());
             return cargoRepository.save(cargo);
         }).orElseThrow(()->new NotFoundException(id));
     }

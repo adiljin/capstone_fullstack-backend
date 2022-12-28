@@ -35,16 +35,13 @@ public class CruiseController {
         return cruiseRepository.findById(id).orElseThrow(()->new NotFoundException(id));
     }
 
-    @PutMapping("/cruise/{id}")
+    @PutMapping("/{id}")
     Cruise updateCruise(@RequestBody Cruise newCruise,@PathVariable Long id){
         return cruiseRepository.findById(id).map(cruise -> {
             cruise.setCompany(newCruise.getCompany());
             cruise.setAddress(newCruise.getAddress());
             cruise.setNumber(newCruise.getNumber());
             cruise.setEmail(newCruise.getEmail());
-            cruise.setYears(newCruise.getYears());
-            cruise.setTypeLease(newCruise.getTypeLease());
-            cruise.setPrice(newCruise.getPrice());
             return cruiseRepository.save(cruise);
         }).orElseThrow(()->new NotFoundException(id));
     }

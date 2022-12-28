@@ -32,16 +32,13 @@ public class ContainerController {
         return containerRepository.findById(id).orElseThrow(()->new NotFoundException(id));
     }
 
-    @PutMapping("/container/{id}")
+    @PutMapping("/{id}")
     Container updateContainer(@RequestBody Container newContainer,@PathVariable Long id){
         return containerRepository.findById(id).map(container -> {
             container.setCompany(newContainer.getCompany());
             container.setAddress(newContainer.getAddress());
             container.setNumber(newContainer.getNumber());
             container.setEmail(newContainer.getEmail());
-            container.setYears(newContainer.getYears());
-            container.setTypeLease(newContainer.getTypeLease());
-            container.setPrice(newContainer.getPrice());
             return containerRepository.save(container);
         }).orElseThrow(()->new NotFoundException(id));
     }

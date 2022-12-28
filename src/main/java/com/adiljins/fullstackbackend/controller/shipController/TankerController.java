@@ -32,16 +32,13 @@ public class TankerController {
         return tankerRepository.findById(id).orElseThrow(()->new NotFoundException(id));
     }
 
-    @PutMapping("/tanker/{id}")
+    @PutMapping("/{id}")
     Tanker updateTanker(@RequestBody Tanker newTanker,@PathVariable Long id){
         return tankerRepository.findById(id).map(tanker -> {
             tanker.setCompany(newTanker.getCompany());
             tanker.setAddress(newTanker.getAddress());
             tanker.setNumber(newTanker.getNumber());
             tanker.setEmail(newTanker.getEmail());
-            tanker.setYears(newTanker.getYears());
-            tanker.setTypeLease(newTanker.getTypeLease());
-            tanker.setPrice(newTanker.getPrice());
             return tankerRepository.save(tanker);
         }).orElseThrow(()->new NotFoundException(id));
     }
