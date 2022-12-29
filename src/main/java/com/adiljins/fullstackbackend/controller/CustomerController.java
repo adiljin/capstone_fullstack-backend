@@ -9,26 +9,27 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/cust")
 @CrossOrigin("http://localhost:3000/")
 public class CustomerController {
 
     @Autowired
     private CustomerRepository customerRepository;
 
-    @PostMapping(path = "/customer")
+    @PostMapping()
     Customer newCustomer(@RequestBody Customer newCustomer){
         return customerRepository.save(newCustomer);
     }
 
-    @GetMapping("/customers")
+    @GetMapping("/get")
     List<Customer> getAllCustomers(){return customerRepository.findAll();}
 
-    @GetMapping("/customers/{id}")
+    @GetMapping("/{id}")
     Customer getCustomerById(@PathVariable Long id){
         return customerRepository.findById(id).orElseThrow(()->new NotFoundException(id));
     }
 
-    @PutMapping("/customer/{id}")
+    @PutMapping("/set/{id}")
     Customer updateCustomer(@RequestBody Customer newCustomer,@PathVariable Long id){
         return customerRepository.findById(id).map(customer -> {
             customer.setName(newCustomer.getName());
@@ -39,7 +40,7 @@ public class CustomerController {
         }).orElseThrow(()->new NotFoundException(id));
     }
 
-    @DeleteMapping("/customer/{id}")
+    @DeleteMapping("/{id}")
     String deleteCustomer(@PathVariable Long id){
         if(!customerRepository.existsById(id)){
             throw new NotFoundException(id);
