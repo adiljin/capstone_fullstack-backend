@@ -49,6 +49,7 @@ public class Ship {
 //        this.company = company;
 //    }
 
+
     public void generatePrice(){
         this.pricePerYear = this.getPricePerYear();
         this.price = getLeasing(this.getTypeLease(),this.getYears(),this.getPricePerYear());

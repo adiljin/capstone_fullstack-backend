@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/freight")
+@RequestMapping("/fre")
 @CrossOrigin("http://localhost:3000/")
 public class FreightController {
 
@@ -19,10 +19,11 @@ public class FreightController {
 
     @PostMapping
     Freight newFreight(@RequestBody Freight newFreight){
+        newFreight.genPrice();
         return freightRepository.save(newFreight);
     }
 
-    @GetMapping("/freights")
+    @GetMapping("/get")
     List<Freight> getAllFreights(){return freightRepository.findAll();}
 
     @GetMapping("/freights/{id}")
@@ -30,15 +31,15 @@ public class FreightController {
         return freightRepository.findById(id).orElseThrow(()->new NotFoundException(id));
     }
 
-    @PutMapping("/freights/{id}")
-    Freight updateFreight(@RequestBody Freight newFreight,@PathVariable Long id){
-        return freightRepository.findById(id).map(freight -> {
-            freight.setWeight(newFreight.getWeight());
-            return freightRepository.save(freight);
-        }).orElseThrow(()->new NotFoundException(id));
-    }
+//    @PutMapping("/freights/{id}")
+//    Freight updateFreight(@RequestBody Freight newFreight,@PathVariable Long id){
+//        return freightRepository.findById(id).map(freight -> {
+//            freight.setWeight(newFreight.getWeight());
+//            return freightRepository.save(freight);
+//        }).orElseThrow(()->new NotFoundException(id));
+//    }
 
-    @DeleteMapping("/freights/{id}")
+    @DeleteMapping("/{id}")
     String deleteTugboat(@PathVariable Long id){
         if(!freightRepository.existsById(id)){
             throw new NotFoundException(id);
